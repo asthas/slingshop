@@ -11,8 +11,15 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower"
+    "bower",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "angular-route": "latest"
+  }
 }

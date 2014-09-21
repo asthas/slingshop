@@ -14,6 +14,11 @@ Change directory and install dependencies
 	cd slingshop
 	sudo npm install
 
+Install vendor files
+
+	cd app
+	bower update
+
 Run the app
 
 	npm start
