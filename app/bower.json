@@ -1,0 +1,18 @@
+{
+  "name": "slingshop",
+  "version": "0.0.0",
+  "authors": [
+    "Astha <asthamaths@gmail.com>",
+    "Shantanu <shantanuraj@ovi.com>"
+  ],
+  "license": "MIT",
+  "homepage": "astha.me/slingshop",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower"
+    "test",
+    "tests"
+  ]
+}
