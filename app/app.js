@@ -12,31 +12,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // ROUTES FOR OUR API
-// =============================================================================
-var router = express.Router();              // get an instance of the express Router
+// get an instance of the express Router
+var router = express.Router();
 
-function savetoparse(str) {
-	var TestObject = Parse.Object.extend("TestObject");
-    var testObject = new TestObject();
-      testObject.save({query: str}, {
-      success: function(object) {
-      	console.log("Saved: " + str);
-      },
-      error: function(model, error) {
-      	console.log("Failed!");
-      }
-    });
-}
-
-// test route to make sure everything is working (accessed at GET http://localhost:3000/api)
 router.get('/', function(req, res) {
     res.json({ message: 'Slingshot API' });
 });
 
-router.get('/save/:str', function(req, res) {
-	res.json({ str: req.params.str});
-    savetoparse(req.params.str);
-});
+router.route('/bags')
+	.get(function(req, res) {
+		res.send('GET request for: bags');
+	})
+	.post(function(req, res) {
+		res.send('POST request for: bags');
+	});
 
 app.use('/api', router);
 
