@@ -12,6 +12,8 @@ var Bags = Parse.Object.extend("bags");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 // ROUTES FOR OUR API
 // get an instance of the express Router
 var router = express.Router();
@@ -37,20 +39,25 @@ function getInventory(res) {
 
 	query.find({
 		success: function(bags) {
-			res.json(bags);
+			res.jsonp(bags)
 		},
 		error: function(error) {
-			res.json( {error: "Out of stock!"} );
+			res.jsonp( {error: "Out of stock!"} );
 		}
 	});
 }
 
 router.route('/')
 	.get(function(req, res) {
-    	res.json({ message: 'Slingshop API' });
+		res.sendfile('./app/public/index.html');
+	});
+
+router.route('/api')
+	.get(function(req, res) {
+    	res.jsonp({ message: 'Slingshop API' });
     });
 
-router.route('/bags')
+router.route('/api/bags')
 	.get(function(req, res) {
 		getInventory(res);
 	})
@@ -58,10 +65,10 @@ router.route('/bags')
 		var name  = req.body.name,
 			price = req.body.price;
 			stock = req.body.stock;
-		res.json({ message: 'Adding to inventory', name: name, price: price, stock: stock });
+		res.jsonp({ message: 'Adding to inventory', name: name, price: price, stock: stock });
 		addBagToInventory(name, price, stock);
 	});
 
-app.use('/api', router);
+app.use('/', router);
 
 module.exports = app;

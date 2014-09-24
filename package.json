@@ -2,7 +2,7 @@
   "name": "slingshop",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app/bin/www"
+    "start": "nodemon ./app/bin/www"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
