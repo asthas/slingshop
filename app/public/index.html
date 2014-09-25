@@ -33,17 +33,32 @@
 	<div class="container">
 		<div class="page-header">
 			<div class="row">
-	          <div class="col-lg-8 col-md-7 col-sm-6">
+	          <div class="col-lg-12 col-md-7 col-sm-6">
 	            <h1>Slingshop</h1>
 	            <div class="progress" ng-show="loading">
 				  <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"\>
 				    <span class="sr-only"></span>
 				  </div>
 				</div>
-	            <p class="lead">{{ bagsCount }}</p>
 	         </div>
 		<div>
 	</div>
+	<div class="container">
+		<div class="row">
+			<div ng-repeat="bag in bagsList">
+			  <div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+			      <img src="http://files.parsetfss.com/cdbed49e-86c4-4f99-8097-1f8e680f5de7/{{bag.photo.name}}" width="200px" height="100px">
+			      <div class="caption">
+			        <h3>{{ bag.name }}</h3>
+			        <p><a href="#" class="btn btn-primary" role="button">Buy Rs. {{ bag.price }}</a></p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
 	<script src="bower/jquery/dist/jquery.js" type="text/javascript"></script>
 	<script src="bower/angular/angular.js" type="text/javascript"></script>
 	<script src="bower/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
