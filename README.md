@@ -16,7 +16,7 @@ Change directory and install dependencies
 
 Install vendor files
 
-	cd app
+	cd app/public
 	bower update
 
 Run the app
